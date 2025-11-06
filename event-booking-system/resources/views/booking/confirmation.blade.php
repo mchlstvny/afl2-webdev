@@ -26,24 +26,24 @@
                 <div class="cyber-card p-8 mb-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-8">
                         <div>
-                            <h3 class="font-orbitron text-electric-purple text-xl mb-4">EVENT DATA</h3>
+                            <h3 class="font-orbitron text-electric-purple text-xl mb-4">DATA EVENT</h3>
                             <p class="font-rajdhani text-white text-lg font-semibold">{{ $booking->ticket->event->name }}</p>
                             <p class="font-exo text-gray-400">{{ $booking->ticket->event->location }}</p>
                         </div>
                         
                         <div>
-                            <h3 class="font-orbitron text-neo-blue text-xl mb-4">ACCESS INFO</h3>
+                            <h3 class="font-orbitron text-neo-blue text-xl mb-4">INFO AKSES</h3>
                             <p class="font-exo text-white"><strong>Level:</strong> {{ $booking->ticket->type }}</p>
-                            <p class="font-exo text-white"><strong>Quantity:</strong> {{ $booking->quantity }}</p>
+                            <p class="font-exo text-white"><strong>KUANTITAS:</strong> {{ $booking->quantity }}</p>
                             <p class="font-exo text-white"><strong>Total:</strong> ${{ number_format($booking->total_price) }}</p>
                         </div>
                     </div>
                     
                     <!-- Access Code -->
                     <div class="p-6 bg-linear-to-r from-neo-blue/10 to-electric-purple/10 rounded-lg border border-neo-blue/30">
-                        <h3 class="font-orbitron text-cyber-pink text-xl mb-4">YOUR ACCESS CODE</h3>
+                        <h3 class="font-orbitron text-cyber-pink text-xl mb-4">KODE AKSES ANDA</h3>
                         <p class="font-orbitron text-3xl text-white glitch tracking-widest">{{ $booking->booking_code }}</p>
-                        <p class="font-exo text-gray-400 text-sm mt-2">Keep this code safe for event entry</p>
+                        <p class="font-exo text-gray-400 text-sm mt-2">SIMPAN KODE INI SECARA RAHASIA</p>
                     </div>
                 </div>
                 
@@ -51,7 +51,7 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('events.index') }}" 
                        class="glow-button font-rajdhani font-bold px-8 py-4">
-                        EXPLORE MORE EVENTS
+                        JELAJAHI EVENT LAIN
                     </a>
                     
                     <button onclick="window.print()" 

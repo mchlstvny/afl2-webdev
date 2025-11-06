@@ -37,7 +37,7 @@
     <!-- Footer -->
     <footer class="border-t border-neo-blue/20 mt-16 py-8 bg-dark-space/50">
         <div class="container mx-auto px-4 text-center">
-            <p class="font-rajdhani text-gray-400 tracking-wider">© 2025 EVENT.NEXUS — Platform Tiket Konser Indonesia</p>
+            <p class="font-rajdhani text-gray-400 tracking-wider">© 2025 NEXUS.ID — Platform Tiket Konser Indonesia</p>
         </div>
     </footer>
 

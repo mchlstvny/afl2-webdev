@@ -26,7 +26,7 @@
 
                     <!-- Event Description -->
                     <div class="cyber-card p-8 mb-8">
-                        <h3 class="font-orbitron text-2xl text-neo-blue mb-4">EVENT OVERVIEW</h3>
+                        <h3 class="font-orbitron text-2xl text-neo-blue mb-4">OVERVIEW EVENT</h3>
                         <p class="font-exo text-gray-300 leading-relaxed text-lg">
                             {{ $event->description }}
                         </p>
@@ -43,7 +43,7 @@
                 <div data-aos="fade-left">
                     <div class="cyber-card p-8 sticky top-24">
                         <h2 class="font-orbitron text-3xl text-center mb-8 cyber-gradient">
-                            SECURE YOUR ACCESS
+                            AMANKAN KODE AKSES ANDA
                         </h2>
                         
                         <!-- Notifications -->
@@ -89,7 +89,7 @@
                                 
                                 <!-- Quantity Selector -->
                                 <div class="mt-4 hidden quantity-selector">
-                                    <label class="block font-rajdhani text-gray-400 mb-2 font-semibold">ACCESS QUANTITY:</label>
+                                    <label class="block font-rajdhani text-gray-400 mb-2 font-semibold">JUMLAH AKSES:</label>
                                     <div class="flex items-center space-x-4">
                                         <input type="number" name="quantity" min="1" max="{{ $ticket->quantity_available }}" 
                                                class="cyber-input w-20 text-center font-orbitron" value="1">
