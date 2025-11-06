@@ -2,24 +2,40 @@
 
 namespace Database\Seeders;
 
+use App\Models\Event;
+use App\Models\Ticket;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Booking;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $faker = \Faker\Factory::create('id_ID');
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $events = Event::factory(30)->create();
+
+        // For each event, create 3 tickets
+        $events->each(function ($event) {
+            Ticket::factory(3)->create([
+                'event_id' => $event->id
+            ]);
+        });
+
+        $users = User::factory(10)->create();
+
+        $users->each(function ($user) {
+            $tickets = Ticket::inRandomOrder()->limit(2)->get();
+            
+            $tickets->each(function ($ticket) use ($user) {
+                Booking::factory()->create([
+                    'user_id' => $user->id,
+                    'ticket_id' => $ticket->id,
+                    'total_price' => fn($attributes) => $attributes['quantity'] * $ticket->price
+                ]);
+            });
+        });
     }
 }
