@@ -35,7 +35,7 @@
                             <h3 class="font-orbitron text-neo-blue text-xl mb-4">INFO AKSES</h3>
                             <p class="font-exo text-white"><strong>Level:</strong> {{ $booking->ticket->type }}</p>
                             <p class="font-exo text-white"><strong>Kuantitas:</strong> {{ $booking->quantity }}</p>
-                            <p class="font-exo text-white"><strong>Total:</strong> ${{ number_format($booking->total_price) }}</p>
+                            <p class="font-exo text-white"><strong>Total:</strong> Rp {{ number_format($booking->total_price) }}</p>
                         </div>
                     </div>
                     

@@ -66,7 +66,7 @@
 
                         <!-- Action Button -->
                         <a href="{{ route('events.show', $event) }}" 
-                           class="block w-full text-center bg-gradient-to-r from-neo-blue/20 to-cyber-pink/20 hover:from-neo-blue/30 hover:to-cyber-pink/30 text-white py-3 rounded-lg font-rajdhani font-semibold tracking-wide border border-neo-blue/30 transition-all duration-300 group-hover:border-cyber-pink/60 group-hover:shadow-lg group-hover:shadow-cyber-pink/20">
+                           class="block w-full text-center bg-linear-to-r from-neo-blue/20 to-cyber-pink/20 hover:from-neo-blue/30 hover:to-cyber-pink/30 text-white py-3 rounded-lg font-rajdhani font-semibold tracking-wide border border-neo-blue/30 transition-all duration-300 group-hover:border-cyber-pink/60 group-hover:shadow-lg group-hover:shadow-cyber-pink/20">
                             DETAIL EVENT
                         </a>
                     </div>

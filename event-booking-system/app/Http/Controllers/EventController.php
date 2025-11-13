@@ -27,4 +27,78 @@ class EventController extends Controller
         $latestEvents = Event::with('tickets')->latest()->take(6)->get();
         return view('home', compact('latestEvents'));
     }
+
+     public function apiIndex(): JsonResponse
+    {
+        try {
+            $events = Event::with('tickets')
+                ->latest()
+                ->paginate(12);
+
+            return response()->json([
+                'success' => true,
+                'data' => $events,
+                'message' => 'Events retrieved successfully'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to retrieve events',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * API: Get single event
+     */
+    public function apiShow($id): JsonResponse
+    {
+        try {
+            $event = Event::with('tickets')->find($id);
+
+            if (!$event) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Event not found'
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $event,
+                'message' => 'Event retrieved successfully'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to retrieve event',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * API: Get event tickets
+     */
+    public function apiTickets($id): JsonResponse
+    {
+        try {
+            $tickets = Ticket::where('event_id', $id)
+                ->where('quantity_available', '>', 0)
+                ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $tickets,
+                'message' => 'Event tickets retrieved successfully'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to retrieve event tickets',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 }
